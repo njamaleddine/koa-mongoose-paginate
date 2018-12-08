@@ -1,0 +1,50 @@
+{
+  "name": "koa-mongoose-paginate",
+  "version": "0.0.0",
+  "description": "Query parameter based pagination for koa REST APIs using mongoose",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/njamaleddine/koa-mongoose-paginate.git"
+  },
+  "keywords": [
+    "koa",
+    "koa2",
+    "mongoose",
+    "REST",
+    "mongo",
+    "django-rest-framework"
+  ],
+  "author": "Nabil Jamaleddine",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/njamaleddine/koa-mongoose-paginate/issues"
+  },
+  "homepage": "https://github.com/njamaleddine/koa-mongoose-paginate#readme",
+  "dependencies": {},
+  "peerDependencies": {
+    "koa": "2.1.0",
+    "mongoose": "5.0.0"
+  },
+  "devDependencies": {
+    "eslint": "5.9.0",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-plugin-import": "2.14.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "rules": {},
+    "extends": "airbnb-base",
+    "plugins": []
+  }
+}

@@ -9,7 +9,7 @@ class PageNumberPaginator {
   constructor(model, ctx, pageSize, sortBy, ordering = 'asc') {
     this.ctx = ctx;
     this.model = model;
-    this.query = this.constructor.getModelQuery(ctx.query || {});
+    this.query = this.constructor.getModelQuery(ctx.query || {}, model);
     this.pageSize = this.constructor.getPageSize(
       parseInt(pageSize, 10) || DEFAULT_PAGE_SIZE
     );
@@ -17,7 +17,7 @@ class PageNumberPaginator {
     this.sort = { [sortBy]: ordering };
   }
 
-  static getModelQuery(query = {}) {
+  static getModelQuery(query = {}, model) {
     const cleanedQueryParams = removeNonModelFields(query, model);
     return Object.assign({}, cleanedQueryParams);
   }

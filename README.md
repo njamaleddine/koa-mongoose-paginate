@@ -1,6 +1,6 @@
 # koa-mongoose-paginate
 
-![version](https://img.shields.io/badge/version-0.0.1-blue.svg?style=shield)
+![version](https://img.shields.io/badge/version-0.0.3-blue.svg?style=shield)
 
 Query parameter based pagination for REST APIs built using koa and mongoose
 

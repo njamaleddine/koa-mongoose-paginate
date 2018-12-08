@@ -38,16 +38,12 @@ class PageNumberPaginator {
     return Math.ceil(count / pageSize);
   }
 
-  async getPageResults(page) {
-    return this.model
-      .find(this.query)
-      .limit(this.pageSize)
-      .skip(page * this.pageSize)
-      .sort(this.sort);
+  static getPreviousPageNum(pageNumber) {
+    return pageNumber > 1 ? pageNumber - 1 : null;
   }
 
-  async count() {
-    return this.model.find(this.query).count();
+  static getNextPageNum(pageNumber, totalPages) {
+    return pageNumber < totalPages ? pageNumber + 1 : null;
   }
 
   getPageUrl(pageNumber) {
@@ -62,14 +58,6 @@ class PageNumberPaginator {
     return pageUrl;
   }
 
-  static getPreviousPageNum(pageNumber) {
-    return pageNumber > 1 ? pageNumber - 1 : null;
-  }
-
-  static getNextPageNum(pageNumber, totalPages) {
-    return pageNumber < totalPages ? pageNumber + 1 : null;
-  }
-
   getPreviousPageUrl(pageNumber) {
     const previous = this.constructor.getPreviousPageNum(pageNumber);
     return this.getPageUrl(previous);
@@ -78,6 +66,18 @@ class PageNumberPaginator {
   getNextPageUrl(pageNumber, totalPages) {
     const next = this.constructor.getNextPageNum(pageNumber, totalPages);
     return this.getPageUrl(next);
+  }
+
+  async getPageResults(page) {
+    return this.model
+      .find(this.query)
+      .limit(this.pageSize)
+      .skip(page * this.pageSize)
+      .sort(this.sort);
+  }
+
+  async count() {
+    return this.model.find(this.query).count();
   }
 
   async get(page = 0) {
